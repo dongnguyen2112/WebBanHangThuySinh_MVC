@@ -1,0 +1,70 @@
+﻿@model IEnumerable<WebBanHangOnline.Models.EF.ProductCategory>
+
+@if (Model != null && Model.Any())
+{
+
+    <div class="banner">
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                <style>
+                    .banner_item {
+                        position: relative;
+                        overflow: hidden;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .banner_item::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background-color: rgba(0, 0, 0, 0.5); /* Màu nền hiệu ứng */
+                        opacity: 0; /* Ban đầu ẩn */
+                        transition: opacity 0.3s ease; /* Hiệu ứng chuyển đổi */
+                    }
+
+                    .banner_item:hover::before {
+                        opacity: 1; /* Hiển thị khi hover */
+                    }
+
+                    .banner_category a {
+                        color: white; /* Màu chữ */
+                        text-decoration: none; /* Loại bỏ gạch chân */
+                    }
+                </style>
+
+                <div class="col-md-4" style="margin-bottom: 30px;">
+                    <div class="banner_item align-items-center" style="background-image: url(@item.Icon); transition: background-color 0.3s ease;b">
+                        <div class="banner_category">
+                            <a href="@item.Alias">@item.Title</a>
+                        </div>
+                    </div>
+                </div>
+
+
+                }
+
+                @*<div class="col-md-4">
+                    <div class="banner_item align-items-center" style="background-image:url(images/banner_2.jpg)">
+                        <div class="banner_category">
+                            <a href="categories.html">accessories's</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="banner_item align-items-center" style="background-image:url(images/banner_3.jpg)">
+                        <div class="banner_category">
+                            <a href="categories.html">men's</a>
+                        </div>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </div>
+}
+
